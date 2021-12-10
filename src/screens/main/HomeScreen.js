@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import MyButton from './components/MyButton';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
     return (
-        <View><Text>Home Screen</Text></View>
+        <View><Text>Home Screen</Text><MyButton title="Open Drawer" onPress={() => navigation.openDrawer()}/></View>
     );
 
 }
