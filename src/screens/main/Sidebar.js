@@ -1,9 +1,8 @@
 import React, {useState,useContext, useEffect} from 'react';
-import {Button, Text, View, StyleSheet} from 'react-native';
+import {Button, Text, View, StyleSheet, Image} from 'react-native';
 import MyButton from './components/MyButton';
 import auth, {firebase} from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 import {
   GoogleSignin,
@@ -46,8 +45,11 @@ const Sidebar = ({navigation}) => {
       };
   return (
     <View style={styles.mainContainer}>
-      <MyButton title="BMI Calculator" onPress={() => navigation.navigate("BMI")} />
+      <MyButton title="BMI Calculator" onPress={() => navigation.navigate("BMI", {
+        hello: "Hello from sidebar"
+      })} />
       <MyButton title="Log out" onPress={() => Logout()} />
+      <Image style={{width: 200, height: 200}}  source={{uri: user?.photoURL}}/>
     </View>
   );
 };
