@@ -1,0 +1,45 @@
+{
+  "name": "HealthCareApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "fbjs": "^0.8.18",
+    "react": "17.0.2",
+    "react-native": "0.66.4",
+    "react-native-eject": "^0.1.2",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^1.0.0",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.4.0",
+    "react-native-svg": "^12.1.1",
+    "@react-native-firebase/app": "^12.1.0",
+    "@react-native-async-storage/async-storage": "^1.15.5",
+    "@react-native-firebase/auth": "^12.1.0",
+    "@react-native-firebase/firestore": "^12.1.0",
+    "@react-native-google-signin/google-signin": "^6.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "babel-jest": "^27.4.4",
+    "eslint": "^8.4.1",
+    "jest": "^27.4.4",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
