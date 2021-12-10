@@ -3,6 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Sidebar from './Sidebar';
 import HomeScreen from './HomeScreen';
 import BmiCalculator from './BmiCalculator';
+import BmiDisplay from './BmiDisplay';
 
 const MainController = ({navigation}) => {
   const Drawer = createDrawerNavigator();
@@ -27,6 +28,7 @@ const MainController = ({navigation}) => {
       initialRouteName="HomeScreen">
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="BMI" component={BmiCalculator} />
+      <Drawer.Screen name="BmiDisplay" component={BmiDisplay} />
     </Drawer.Navigator>
   );
 };
