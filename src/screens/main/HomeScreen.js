@@ -7,7 +7,8 @@ const HomeScreen = ({navigation}) => {
     <View>
       <Text>Home Screen</Text>
       <MyButton title="Open Drawer" onPress={() => navigation.openDrawer()} />
-      <MyButton title="Open Camera" onPress={() => ToastAndroid.show("Add camera component",1000)} />
+      {/* <MyButton title="Open Camera" onPress={() => ToastAndroid.show("Add camera component",1000)} /> */}
+      <MyButton title="Open Camera" onPress={() => navigation.navigate("Camera")} />
     </View>
   );
 };

@@ -4,6 +4,8 @@ import Sidebar from './Sidebar';
 import HomeScreen from './HomeScreen';
 import BmiCalculator from './BmiCalculator';
 import BmiDisplay from './BmiDisplay';
+import Camera from './components/Camera';
+
 
 const MainController = ({navigation}) => {
   const Drawer = createDrawerNavigator();
@@ -29,6 +31,7 @@ const MainController = ({navigation}) => {
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="BMI" component={BmiCalculator} />
       <Drawer.Screen name="BmiDisplay" component={BmiDisplay} />
+      <Drawer.Screen name="Camera" component={Camera} />
     </Drawer.Navigator>
   );
 };
