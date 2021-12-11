@@ -48,6 +48,9 @@ const Sidebar = ({navigation}) => {
       <MyButton title="BMI Calculator" onPress={() => navigation.navigate("BMI", {
         hello: "Hello from sidebar"
       })} />
+      <MyButton title="Covid Updates" onPress={() => navigation.navigate("Covid", {
+        hello: "Hello from sidebar"
+      })} />
       <MyButton title="Log out" onPress={() => Logout()} />
       <Image style={{width: 200, height: 200}}  source={{uri: user?.photoURL}}/>
     </View>

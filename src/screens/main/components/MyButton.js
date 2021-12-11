@@ -18,7 +18,7 @@ const MyButton = ({onPress, title}) => {
           height: 50,
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '20%',
+          marginTop: '5%',
           elevation: 3,
           borderRadius: 50,
           backgroundColor: primaryColor,
