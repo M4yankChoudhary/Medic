@@ -6,7 +6,11 @@ import BmiCalculator from './BmiCalculator';
 import Covid_screen from './Covid_screen';
 import BmiDisplay from './BmiDisplay';
 import Camera from './Camera';
+
+import Profile from './Profile';
+
 import Results from './Results';
+
 
 
 const MainController = ({navigation}) => {
@@ -35,7 +39,11 @@ const MainController = ({navigation}) => {
       <Drawer.Screen name="BmiDisplay" component={BmiDisplay} />
       <Drawer.Screen name="Covid" component={Covid_screen} />
       <Drawer.Screen name="Camera" component={Camera} />
+
+      <Drawer.Screen name="Profile" component={Profile} />
+
       <Drawer.Screen name="Results" component={Results} />
+
     </Drawer.Navigator>
   );
 };

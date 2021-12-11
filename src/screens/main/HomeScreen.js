@@ -38,7 +38,7 @@ const HomeScreen = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.profileContainer}
-          onPress={() => navigation.openDrawer()}>
+          onPress={() => navigation.navigate("Profile")}>
           <Image
             style={styles.profileIcon}
             resizeMode="stretch"

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View, StyleSheet, TextInput} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, Text, View, StyleSheet, TextInput } from 'react-native';
 import TopBar from './components/TopBar';
 import MyButton from './components/MyButton';
 
-const BmiCalculator = ({navigation}) => {
+const BmiCalculator = ({ navigation }) => {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   // const [bmi, setBmi] = useState('');
@@ -17,9 +17,10 @@ const BmiCalculator = ({navigation}) => {
   }, [navigation]);
 
   const checkBmi = () => {
-    const value = weight / (height * height);
-    const user_bmi = value.toFixed(2);
-    navigation.navigate('BmiDisplay', {bmi: user_bmi});
+    const user_bmi = (weight / ((height * height)/ 10000)).toFixed(2);
+    // const value = weight / (height * height);
+    // const user_bmi = value.toFixed(2);
+    navigation.navigate('BmiDisplay', { bmi: user_bmi });
     console.log(user_bmi);
   };
   return (
@@ -31,7 +32,6 @@ const BmiCalculator = ({navigation}) => {
         }}
       />
       <ScrollView>
-        {/* <View style={{display:'flex', flex:1, flexDirection:'column'}}> */}
         <View style={styles.form}>
           <View style={styles.textInputView}>
             <TextInput
@@ -66,7 +66,6 @@ const BmiCalculator = ({navigation}) => {
             />
           )}
         </View>
-        {/* </View> */}
       </ScrollView>
     </View>
   );
