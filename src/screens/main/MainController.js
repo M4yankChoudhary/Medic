@@ -3,6 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Sidebar from './Sidebar';
 import HomeScreen from './HomeScreen';
 import BmiCalculator from './BmiCalculator';
+import Covid_screen from './Covid_screen';
 import BmiDisplay from './BmiDisplay';
 import Camera from './Camera';
 
@@ -31,6 +32,7 @@ const MainController = ({navigation}) => {
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="BMI" component={BmiCalculator} />
       <Drawer.Screen name="BmiDisplay" component={BmiDisplay} />
+      <Drawer.Screen name="Covid" component={Covid_screen} />
       <Drawer.Screen name="Camera" component={Camera} />
     </Drawer.Navigator>
   );
