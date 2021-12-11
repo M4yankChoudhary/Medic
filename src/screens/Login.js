@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View,Image, StyleSheet } from 'react-native';
 import auth, {firebase} from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -53,12 +53,27 @@ const Login = () => {
 
 
     return (
-        <View style={styles.mainContainer}><GoogleSigninButton
-        style={{width: 250, height: 50, marginTop: '10%'}}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Light}
-        onPress={() => onGoogleButtonPress()}
-      /></View>
+        <View style={styles.mainContainer}>
+          <Image
+            style={styles.welcome}
+            source={require('./images/welcome.png')}
+          />
+          <Image
+            style={styles.front_img}
+            source={require('./images/front_img.png')}
+          />
+          <View>
+            <Text style={styles.text_div}>
+              Medic - makes your life easier
+            </Text>
+          </View>
+          <GoogleSigninButton
+            style={{width: 250, height: 50, marginTop: '10%'}}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Light}
+            onPress={() => onGoogleButtonPress()}
+          />
+        </View>
     );
 
 }
@@ -69,7 +84,27 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: 'white',
   },
+  welcome: {
+    width: '100%',
+    resizeMode: 'contain',
+    height: '10%',
+    paddingBottom: '50%'
+  },
+  front_img: {
+    width: '100%',
+    resizeMode: 'contain',
+    height: '40%',
+  },
+  text_div: {
+    textAlign: 'center',
+    padding: 10,
+    color: 'black',
+    fontWeight: 'bold'
+  }
 });
 
 export default Login;
