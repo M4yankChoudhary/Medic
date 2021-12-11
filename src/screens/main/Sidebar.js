@@ -52,7 +52,7 @@ const Sidebar = ({navigation}) => {
         hello: "Hello from sidebar"
       })} />
       <MyButton title="Log out" onPress={() => Logout()} />
-      <Image style={{width: 200, height: 200}}  source={{uri: user?.photoURL}}/>
+      {/* <Image style={{width: 200, height: 200}}  source={{uri: user?.photoURL}}/> */}
     </View>
   );
 };

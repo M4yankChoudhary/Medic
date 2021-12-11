@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
-const primaryColor = '#FF0000';
+const primaryColor = 'white';
 // const NunitoSans = 'NunitoSans-Regular';
 
 const TopBar = ({onPress, title}) => {
@@ -14,7 +14,7 @@ const TopBar = ({onPress, title}) => {
         backgroundColor: primaryColor,
         borderBottomStartRadius: 0,
         borderBottomEndRadius: 0,
-        elevation: 2,
+        elevation: 10,
         justifyContent: 'center',
         // flexDirection: 'row',
         alignItems: 'center',
@@ -22,7 +22,7 @@ const TopBar = ({onPress, title}) => {
       }}>
      
       <View>
-        <Text style={{color: 'white', fontSize: 20,}}>{title}</Text>
+        <Text style={{color: 'black', fontSize: 20,}}>{title}</Text>
       </View>
       <Pressable
         style={{
