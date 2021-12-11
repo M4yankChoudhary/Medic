@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import HomeScreen from './HomeScreen';
 import BmiCalculator from './BmiCalculator';
 import BmiDisplay from './BmiDisplay';
-import Camera from './components/Camera';
+import Camera from './Camera';
 
 
 const MainController = ({navigation}) => {
