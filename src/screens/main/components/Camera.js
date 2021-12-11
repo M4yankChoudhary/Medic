@@ -23,6 +23,9 @@ const Camera = (props) => {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       console.log(data.uri);
+      this.camera.recordAsync({
+  mute: true
+})
       // props.navigation.navigate("Home",{uri:data.uri})
     }
   };
