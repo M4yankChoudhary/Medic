@@ -14,7 +14,7 @@ import {
 import {RNCamera} from 'react-native-camera';
 import TextRecognition from 'react-native-text-recognition';
 
-const Camera = props => {
+const Camera = ({navigation}) => {
   let cameraRef = useRef(null);
   const [camType, setcamType] = useState(RNCamera.Constants.Type.back);
   const [flash, setflash] = useState(RNCamera.Constants.FlashMode.on);
@@ -29,7 +29,7 @@ const Camera = props => {
       console.log(data.uri);
       const result = await TextRecognition.recognize(data.uri);
       console.log(result);
-      // props.navigation.navigate("Home",{uri:data.uri})
+      navigation.navigate("Results",{uri:data.uri})
     }
   };
   const flipCamera = async () => {
