@@ -13,7 +13,7 @@ const Covid_screen = ({ navigation }) => {
       try {
         const res = await fetch('https://api.covid19india.org/data.json');
         const actualData = await res.json();
-        console.log(actualData.statewise[0]);
+        // console.log(actualData.statewise[0]);
         setData(actualData.statewise[0]);
       } catch(err) {
           console.log(err);

@@ -49,8 +49,10 @@ const Camera = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.extra_div}></View>
       <RNCamera
         ref={cameraRef}
+        ratio={'4:4'}
         style={styles.preview}
         type={camType}
         flashMode={flash}
@@ -61,7 +63,9 @@ const Camera = ({navigation}) => {
           buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
         }}>
-        <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
+      </RNCamera>
+      <View style={styles.extra_div}></View>
+      <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity
             onPress={() => toggleFlash()}
             style={styles.capture}>
@@ -75,8 +79,7 @@ const Camera = ({navigation}) => {
           <TouchableOpacity onPress={() => flipCamera()} style={styles.capture}>
             <Text style={{fontSize: 14}}> TURN </Text>
           </TouchableOpacity>
-        </View>
-      </RNCamera>
+      </View>
     </View>
   );
 };
@@ -91,6 +94,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    width: '50%',
+    marginLeft: '25%'
   },
   capture: {
     flex: 0,
@@ -101,6 +106,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
+  extra_div: {
+    height: '40%'
+  }
 });
 
 export default Camera;
