@@ -1,21 +1,27 @@
-import React, {useState} from 'react';
-import { ScrollView, Text, View, StyleSheet, TextInput } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ScrollView, Text, View, StyleSheet, TextInput} from 'react-native';
 import TopBar from './components/TopBar';
 import MyButton from './components/MyButton';
 
-
-const BmiCalculator = ({ navigation }) => {
-  // const { hello } = route.params;
+const BmiCalculator = ({navigation}) => {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
-  const [bmi, setBmi] = useState('');
+  // const [bmi, setBmi] = useState('');
+  // const { hello } = route.params;
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setHeight('');
+      setWeight('');
+    });
+    unsubscribe;
+  }, [navigation]);
 
-   const checkBmi = () => {
-        const value = weight / (height * height);
-        const user_bmi = value.toFixed();
-        setBmi(user_bmi)
-        // console.log(bmi)
-      } 
+  const checkBmi = () => {
+    const value = weight / (height * height);
+    const user_bmi = value.toFixed(2);
+    navigation.navigate('BmiDisplay', {bmi: user_bmi});
+    console.log(user_bmi);
+  };
   return (
     <View style={styles.mainContainer}>
       <TopBar
@@ -29,19 +35,36 @@ const BmiCalculator = ({ navigation }) => {
         <View style={styles.form}>
           <View style={styles.textInputView}>
             <TextInput
-              placeholder="What's your weight?"
-              onChangeText={(value) => setWeight(value)} />
-            <TextInput placeholder="Kg" />
+              placeholder="What's your weight? (KG)"
+              onChangeText={value => setWeight(value)}
+              keyboardType="decimal-pad"
+              defaultValue={weight}
+            />
           </View>
           <View style={styles.textInputView}>
             <TextInput
-              placeholder="What's your height?"
-              onChangeText={(value) => setHeight(value)} />
-            <TextInput placeholder="cm" />
+              placeholder="What's your height? (CM)"
+              onChangeText={value => {
+                setHeight(value);
+              }}
+              defaultValue={height}
+              keyboardType="decimal-pad"
+            />
           </View>
         </View>
         <View style={styles.submitButton}>
-          <MyButton onPress={() => {checkBmi(), navigation.navigate("BmiDisplay", {bmi:bmi})}} title="SUBMIT" />
+          {(weight || height) === '' ? (
+            <MyButton
+              title="SUBMIT"
+            />
+          ) : (
+            <MyButton
+              onPress={() => {
+                checkBmi();
+              }}
+              title="SUBMIT"
+            />
+          )}
         </View>
         {/* </View> */}
       </ScrollView>
@@ -55,27 +78,29 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   form: {
     flex: 5,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     paddingTop: 50,
     justifyContent: 'center',
-    height: 440
+    height: 440,
   },
   textInputView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 20, borderBottomWidth: 1,
-    paddingLeft: 40, paddingRight: 40,
+    margin: 20,
+    borderBottomWidth: 1,
+    paddingLeft: 40,
+    paddingRight: 40,
     borderColor: 'grey',
-    width: '90%'
+    width: '90%',
   },
   submitButton: {
     flex: 1,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default BmiCalculator;

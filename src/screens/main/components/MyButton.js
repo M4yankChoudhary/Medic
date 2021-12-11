@@ -8,9 +8,9 @@ const MyButton = ({onPress, title}) => {
     <Pressable
       style={({pressed}) => [
         {
-          // borderWidth: pressed ? 2 : 1,
-          // borderColor: pressed ? primaryColor : 'white',
-          opacity: pressed ? 0.5 : 1,
+          borderWidth: pressed ? 0 : 2,
+          borderColor: pressed ? primaryColor : 'white',
+          // opacity: pressed ? 0.5 : 1,
           shadowColor: pressed ? 'white' : 'black',
         },
         {
