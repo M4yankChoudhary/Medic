@@ -10,6 +10,7 @@ import {
   ToastAndroid,
   View,
   Image,
+  ImageBackground,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import TextRecognition from 'react-native-text-recognition';
@@ -17,7 +18,7 @@ import TextRecognition from 'react-native-text-recognition';
 const Camera = ({navigation}) => {
   let cameraRef = useRef(null);
   const [camType, setcamType] = useState(RNCamera.Constants.Type.back);
-  const [flash, setflash] = useState(RNCamera.Constants.FlashMode.on);
+  const [flash, setflash] = useState(RNCamera.Constants.FlashMode.off);
   const [ocrElements, setOcr] = useState();
   const takePicture = async () => {
     if (cameraRef) {
@@ -49,10 +50,11 @@ const Camera = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={require('./images/bg.jpg')} resizeMode="cover" style={styles.backgroundImage}>
       <View style={styles.extra_div}></View>
       <RNCamera
         ref={cameraRef}
-        ratio={'4:4'}
+        ratio={'16:9'}
         style={styles.preview}
         type={camType}
         flashMode={flash}
@@ -66,20 +68,25 @@ const Camera = ({navigation}) => {
       </RNCamera>
       <View style={styles.extra_div}></View>
       <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => toggleFlash()}
             style={styles.capture}>
             <Text style={{fontSize: 14}}> Flash </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
             onPress={() => takePicture()}
             style={styles.capture}>
-            <Text style={{fontSize: 14}}> SNAP </Text>
+                <Image
+            style={styles.profileIcon}
+            resizeMode="stretch"
+            source={require('./images/cam.png')}
+          />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => flipCamera()} style={styles.capture}>
+          {/* <TouchableOpacity onPress={() => flipCamera()} style={styles.capture}>
             <Text style={{fontSize: 14}}> TURN </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -87,8 +94,12 @@ const Camera = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+   
+  },
+  backgroundImage: {
+    flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
   preview: {
     flex: 1,
@@ -108,6 +119,11 @@ const styles = StyleSheet.create({
   },
   extra_div: {
     height: '40%'
+  }
+  ,
+  profileIcon: {
+    width: 50,
+    height: 50,
   }
 });
 
