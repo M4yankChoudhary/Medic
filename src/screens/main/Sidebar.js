@@ -1,6 +1,8 @@
 import React, {useState,useContext, useEffect} from 'react';
 import {Button, Text, View, StyleSheet, Image} from 'react-native';
 import MyButton from './components/MyButton';
+import NewButton from './components/NewButton';
+import LogoutButton from './components/LogoutButton';
 import auth, {firebase} from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -45,13 +47,22 @@ const Sidebar = ({navigation}) => {
       };
   return (
     <View style={styles.mainContainer}>
-      <MyButton title="BMI Calculator" onPress={() => navigation.navigate("BMI", {
+      <View style={styles.sidebarTopDiv}>
+        <Image
+            style={styles.profileIcon}
+            resizeMode="stretch"
+            source={{ uri: user.photoURL }}
+        />
+        <Text style={{color:'red'}}>{user.displayName}</Text>
+        <Text style={{color:'grey'}}>{user.email}</Text>
+      </View>
+      <NewButton title="BMI CALCULATOR" onPress={() => navigation.navigate("BMI", {
         hello: "Hello from sidebar"
       })} />
-      <MyButton title="Covid Updates" onPress={() => navigation.navigate("Covid", {
+      <NewButton title="COVID UPDATES" onPress={() => navigation.navigate("Covid", {
         hello: "Hello from sidebar"
       })} />
-      <MyButton title="Log out" onPress={() => Logout()} />
+      <LogoutButton title="LOGOUT" onPress={() => Logout()} />
       {/* <Image style={{width: 200, height: 200}}  source={{uri: user?.photoURL}}/> */}
     </View>
   );
@@ -61,9 +72,25 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     display: 'flex',
-    justifyContent: 'space-evenly',
+    // justifyContent: 'space-evenly',
     alignItems: 'center',
   },
+  profileIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 20,
+  },
+  sidebarTopDiv: {
+    shadowColor: 'black',
+    backgroundColor: 'white',
+    width: '100%',
+    height: '15%',
+    // borderBottomWidth: 2,
+    // borderBottomColor: 'black',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
 
 export default Sidebar;
