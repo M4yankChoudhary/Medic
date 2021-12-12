@@ -30,7 +30,7 @@ const Camera = ({navigation}) => {
       console.log(data.uri);
       const result = await TextRecognition.recognize(data.uri);
       console.log(result);
-      navigation.navigate("Results",{uri:data.uri})
+      navigation.navigate("Results",{text: result})
     }
   };
   const flipCamera = async () => {

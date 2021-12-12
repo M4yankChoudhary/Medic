@@ -94,7 +94,7 @@ const BmiDisplay = ({ route, navigation }) => {
                   </View>
                 </View> : <></>}
       </View>
-      <View style={styles.riskDetails}>
+      {/* <View style={styles.riskDetails}>
         <Text
           style={{
             marginBottom: 10,
@@ -108,7 +108,7 @@ const BmiDisplay = ({ route, navigation }) => {
           High risk of developing heart disease, high blood pressure, stroke,
           diabetes
         </Text>
-      </View>
+      </View> */}
     </View>
   );
 };

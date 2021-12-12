@@ -13,10 +13,12 @@ import {
 } from 'react-native';
 import TopBar from './components/TopBar';
 import firestore from '@react-native-firebase/firestore';
-const Results = () => {
+const Results = ({route, navigation}) => {
+  const {text} = route.params;
+  console.log(text[0].split(' ')[0].toString().toLowerCase());
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
-  const ref = firestore().collection('medicines').where('name', '>=', "paracetamol");
+  const ref = firestore().collection('medicines').where('name', '>=', `${text.toString().toLowerCase()}`);
 
   useEffect(() => {
     return ref.onSnapshot(querySnapshot => {
