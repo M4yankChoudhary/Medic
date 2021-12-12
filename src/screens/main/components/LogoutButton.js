@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 const primaryColor = '#FF0000';
 const NunitoSans = 'NunitoSans-Regular';
 
-const MyButton = ({onPress, title}) => {
+const LogoutButton = ({onPress, title}) => {
   return (
     <Pressable
       style={({pressed}) => [
@@ -35,4 +35,4 @@ const MyButton = ({onPress, title}) => {
 
 const styles = StyleSheet.create({});
 
-export default MyButton;
+export default LogoutButton;
